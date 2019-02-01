@@ -1,4 +1,4 @@
-# Presentation: Practical Testing for React
+# Presentation: Practical Testing for React, Liferay Frontend Meetup 2019
 
 Presentation using Spectacle
 
