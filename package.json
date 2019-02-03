@@ -1,7 +1,7 @@
 {
-	"name": "spectacle-boilerplate",
+	"name": "Testing for React Presentation",
 	"version": "1.0.1",
-	"description": "ReactJS Powered Presentation Framework",
+	"description": "Presentation using Spectale",
 	"main": "lib/index.js",
 	"scripts": {
 		"build": "npm run clean & cross-env NODE_ENV=production webpack --config webpack.config.production.js",
@@ -11,7 +11,7 @@
 		"lint": "eslint --ext .js,.jsx .",
 		"start": "cross-env NODE_ENV=development node server.js"
 	},
-	"author": "Formidable Labs <hello@formidable.com> (https://formidable.com)",
+	"author": "Rebecca Dai",
 	"license": "MIT",
 	"dependencies": {
 		"@babel/polyfill": "^7.0.0",
