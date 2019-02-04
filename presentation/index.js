@@ -37,16 +37,79 @@ export default class Presentation extends React.Component {
 			<Deck transition={['fade']} transitionDuration={300} theme={theme}>
 				<Slide bgColor="base">
 					<Heading size={1} fit lineHeight={1} textColor="theme">
-						Practical Testing for React
-					</Heading>
-
-					<Heading size={6} textColor="primary" caps>
-						sharing
+						Practical Testing for <Text textColor="primary">React</Text>
 					</Heading>
 
 					<Text size={7} textColor="secondary">
 						Rebecca Dai
 					</Text>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={3} textColor="theme">
+						Share some of my experiences...
+					</Heading>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={3} textColor="theme">
+						It began with LESA
+					</Heading>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={3} textColor="theme">
+						What we were doing: Migrating and refactoring LESA code (6.0 -> DXP 7.0) while adding new features.
+					</Heading>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						It was hard!
+					</Heading>
+
+					<List>
+						<ListItem>Difficult to understand the intention of the original code</ListItem>
+						<ListItem>Long development cycle, hard to add new feature</ListItem>
+						<ListItem>Regressions</ListItem>
+						<ListItem>Existing features that the product owners were not aware existed</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={3} textColor="theme">
+						No confidence 😢
+					</Heading>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={3} textColor="theme">
+						How could it be better? 🤔💡
+					</Heading>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						Benefits of Testing
+					</Heading>
+
+					<List>
+						<ListItem>Getting into a habit of writing tests forces a developer to think about possible bugs and corner cases for a feature</ListItem>
+						<ListItem>Good way of preventing regressions</ListItem>
+						<ListItem>Provides spport for refactoring, which was a constant complain that came up in our team retros</ListItem>
+						<ListItem>Tests as an augmentation to documentation</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						But we didn't start writing tests right away
+					</Heading>
+
+					<List>
+						<ListItem>"Writing tests doubles development time"</ListItem>
+						<ListItem>"Each time we refactor we have to rewrite all the tests"</ListItem>
+					</List>
 				</Slide>
 
 				<Slide bgColor="base">
@@ -71,16 +134,6 @@ export default class Presentation extends React.Component {
 					<Text size={6} textColor="secondary">
 						Standard text
 					</Text>
-				</Slide>
-
-				<Slide bgColor="base" textColor="secondary">
-					<Heading size={6} textColor="primary" caps>
-						Standard List
-					</Heading>
-					<List>
-						<ListItem>Item 1</ListItem>
-						<ListItem>Item 2</ListItem>
-					</List>
 				</Slide>
 
 				<Slide bgColor="base" textColor="secondary">
