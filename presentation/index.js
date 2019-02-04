@@ -9,6 +9,7 @@ import {
 	Image,
 	List,
 	ListItem,
+	S,
 	Slide,
 	Text
 } from 'spectacle';
@@ -58,8 +59,12 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide bgColor="base">
-					<Heading size={3} textColor="theme">
-						What we were doing: Migrating and refactoring LESA code (6.0 -> DXP 7.0) while adding new features.
+					<Heading size={3} textColor="primary">
+						What we were doing:
+					</Heading>
+
+					<Heading size={4} textColor="theme">
+						Migrating and refactoring LESA code while adding new features.
 					</Heading>
 				</Slide>
 
@@ -68,17 +73,21 @@ export default class Presentation extends React.Component {
 						It was hard!
 					</Heading>
 
-					<List>
-						<ListItem>Difficult to understand the intention of the original code</ListItem>
+					<List textColor="theme">
+						<ListItem>
+							Difficult to understand the intention of the original code
+						</ListItem>
 						<ListItem>Long development cycle, hard to add new feature</ListItem>
 						<ListItem>Regressions</ListItem>
-						<ListItem>Existing features that the product owners were not aware existed</ListItem>
+						<ListItem>
+							Existing features that the product owners were not aware existed
+						</ListItem>
 					</List>
 				</Slide>
 
 				<Slide bgColor="base">
 					<Heading size={3} textColor="theme">
-						No confidence 😢
+						No code confidence 😢
 					</Heading>
 				</Slide>
 
@@ -93,10 +102,16 @@ export default class Presentation extends React.Component {
 						Benefits of Testing
 					</Heading>
 
-					<List>
-						<ListItem>Getting into a habit of writing tests forces a developer to think about possible bugs and corner cases for a feature</ListItem>
+					<List textColor="theme">
+						<ListItem>
+							Getting into a habit of writing tests forces a developer to think
+							about possible bugs and corner cases for a feature
+						</ListItem>
 						<ListItem>Good way of preventing regressions</ListItem>
-						<ListItem>Provides spport for refactoring, which was a constant complain that came up in our team retros</ListItem>
+						<ListItem>
+							Provides support for refactoring, which was a constant complaint
+							that came up in our team retros
+						</ListItem>
 						<ListItem>Tests as an augmentation to documentation</ListItem>
 					</List>
 				</Slide>
@@ -106,10 +121,82 @@ export default class Presentation extends React.Component {
 						But we didn't start writing tests right away
 					</Heading>
 
-					<List>
-						<ListItem>"Writing tests doubles development time"</ListItem>
-						<ListItem>"Each time we refactor we have to rewrite all the tests"</ListItem>
+					<List textColor="theme">
+						<ListItem>"Writing tests doubles development time!"</ListItem>
+						<ListItem>
+							"Each time we refactor we have to rewrite all the tests!"
+						</ListItem>
+						<ListItem>
+							"There are too many options out there, it's overwhelming!"
+						</ListItem>
 					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						"Writing tests doubles development time!"
+					</Heading>
+
+					<List textColor="theme">
+						<ListItem>
+							It <S type="underline">does</S> take more effort to go back to an
+							existing code base and add tests
+						</ListItem>
+						<ListItem>
+							Why not write tests before implementing the feature?
+						</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						"Each time we refactor we have to rewrite all the tests!"
+					</Heading>
+
+					<List textColor="theme">
+						<ListItem>
+							Maybe we can approach how we write tests differently?
+						</ListItem>
+						<ListItem>Test API rather than implementation details</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						"There are too many options out there, it's overwhelming!"
+					</Heading>
+
+					<List textColor="theme">
+						<ListItem>The actual tests are easy to follow</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						Testing libraries
+					</Heading>
+
+					<List textColor="theme">
+						<ListItem>Test Utilities</ListItem>
+						<ListItem>Enzyme</ListItem>
+						<ListItem>React Testing LIbrary</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						Take away:
+					</Heading>
+
+					<List textColor="theme">
+						<ListItem>Any test is better than no test</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						Thank you!
+					</Heading>
 				</Slide>
 
 				<Slide bgColor="base">
