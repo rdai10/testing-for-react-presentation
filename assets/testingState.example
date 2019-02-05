@@ -1,0 +1,14 @@
+import React from 'react';
+import {mount} from 'enzyme';
+
+import MyComponent from './MyComponent';
+
+it('sets loading state to true on save press', () => {
+	const component = mount(<MyComponent />);
+
+	component.find('[className="button"]').simulate('click');
+
+	expect(component.state('loading')).toEqual(true);
+
+	component.unmount();
+});

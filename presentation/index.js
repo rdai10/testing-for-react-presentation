@@ -167,8 +167,14 @@ export default class Presentation extends React.Component {
 					</Heading>
 
 					<List textColor="theme">
-						<ListItem>The actual tests are easy to follow</ListItem>
+						<ListItem>Let's take a look at the options out there</ListItem>
 					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						Using Jest as the testing framework that acts as the test runner, assertion library, and mock library.
+					</Heading>
 				</Slide>
 
 				<Slide bgColor="base">
@@ -179,7 +185,41 @@ export default class Presentation extends React.Component {
 					<List textColor="theme">
 						<ListItem>Test Utilities</ListItem>
 						<ListItem>Enzyme</ListItem>
-						<ListItem>React Testing LIbrary</ListItem>
+						<ListItem>React Testing Library</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						Enzyme
+					</Heading>
+
+					<List textColor="theme">
+						<ListItem>Built by Airbnb</ListItem>
+						<ListItem>Wide adoption and community support</ListItem>
+						<ListItem>A little bit more involved to set up <Code>npm install --save enzyme enzyme-adapter-react-16 react-test-renderer</Code></ListItem>
+						<ListItem>Version cooresponding adapter that needs to be configured</ListItem>
+						<ListItem>Robust API</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base">
+					<CodePane
+						lang="jsx"
+						source={require('raw-loader!../assets/setUpTestForEnzyme.example')}
+					/>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						React Testing Library
+					</Heading>
+
+					<List textColor="theme">
+						<ListItem>A way to test react components to resemble how an end user would interact with the component</ListItem>
+						<ListItem>Avoids testing implementation details</ListItem>
+						<ListItem>Easy set up <Code>npm install --save react-testing-library jest-dom</Code></ListItem>
+						<ListItem>Built on top of <Code>dom-testing-library</Code></ListItem>
 					</List>
 				</Slide>
 
@@ -189,6 +229,7 @@ export default class Presentation extends React.Component {
 					</Heading>
 
 					<List textColor="theme">
+						<ListItem>There's no one size fits all way to do testing</ListItem>
 						<ListItem>Any test is better than no test</ListItem>
 					</List>
 				</Slide>
@@ -221,13 +262,6 @@ export default class Presentation extends React.Component {
 					<Text size={6} textColor="secondary">
 						Standard text
 					</Text>
-				</Slide>
-
-				<Slide bgColor="base" textColor="secondary">
-					<CodePane
-						lang="jsx"
-						source={require('raw-loader!../assets/code.example')}
-					/>
 				</Slide>
 			</Deck>
 		);
