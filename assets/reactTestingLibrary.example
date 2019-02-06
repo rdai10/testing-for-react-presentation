@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, fireEvent} from 'react-testing-library';
+import {fireEvent, render} from 'react-testing-library';
 
 import Accordion from '../Accordion';
 
@@ -11,7 +11,7 @@ describe('Accordion', () => {
 		}
 	];
 
-	it('opens when clicked', () => {
+	it('opens up when the title is clicked', () => {
 		const {getByText, queryByText} = render(<Accordion items={items} />);
 
 		expect(queryByText('Accordion Body')).toBeNull();

@@ -193,7 +193,7 @@ export default class Presentation extends React.Component {
 
 				<Slide align="top" bgColor="base">
 					<CodePane
-						textSize="16px"
+						textSize="11px"
 						lang="javascript"
 						source={require('raw-loader!../assets/accordion.example')}
 					/>
@@ -281,7 +281,7 @@ export default class Presentation extends React.Component {
 						</ListItem>
 						<ListItem>Good for testing in isolation</ListItem>
 						<ListItem>
-							Can help prevent snapshot test from breaking all the time
+							Can help prevent snapshot tests from breaking all the time
 						</ListItem>
 					</List>
 				</Slide>
@@ -295,7 +295,7 @@ export default class Presentation extends React.Component {
 					/>
 
 					<Appear>
-						<Image src={images.accordion} width={800} />
+						<Image src={images.accordion} width={980} />
 					</Appear>
 				</Slide>
 
@@ -347,7 +347,7 @@ export default class Presentation extends React.Component {
 					</Heading>
 
 					<List textColor="theme">
-						<ListItem>There's no one size fits all way to do testing</ListItem>
+						<ListItem>There's no one size fits all solution to do testing</ListItem>
 						<ListItem>Any test is better than no test</ListItem>
 					</List>
 				</Slide>
