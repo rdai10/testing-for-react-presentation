@@ -1,0 +1,12 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import MyComponent from './MyComponent';
+
+describe('MyComponent', () => {
+	it('renders', () => {
+		const div = document.createElement('div');
+
+		ReactDOM.render(<MyComponent />, div);
+	});
+});

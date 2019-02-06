@@ -1,0 +1,5 @@
+describe('MyComponent', () => {
+	const wrapper = shallow(<MyComponent />);
+
+	expect(wrapper.state().show).toBe(true);
+});

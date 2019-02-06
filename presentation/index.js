@@ -1,16 +1,21 @@
 import React from 'react';
 
 import {
+	Appear,
 	Code,
 	CodePane,
-	ComponentPlayground,
 	Deck,
+	Fill,
+	Fit,
 	Heading,
 	Image,
 	List,
 	ListItem,
-	S,
 	Slide,
+	Table,
+	TableHeaderItem,
+	TableItem,
+	TableRow,
 	Text
 } from 'spectacle';
 
@@ -18,6 +23,10 @@ import createTheme from 'spectacle/lib/themes/default';
 
 // Require CSS
 require('normalize.css');
+
+const images = {
+	accordion: require('../assets/shallowRenderedAccordion.png')
+};
 
 const theme = createTheme(
 	{
@@ -55,16 +64,6 @@ export default class Presentation extends React.Component {
 				<Slide bgColor="base">
 					<Heading size={3} textColor="theme">
 						It began with LESA
-					</Heading>
-				</Slide>
-
-				<Slide bgColor="base">
-					<Heading size={3} textColor="primary">
-						What we were doing:
-					</Heading>
-
-					<Heading size={4} textColor="theme">
-						Migrating and refactoring LESA code while adding new features.
 					</Heading>
 				</Slide>
 
@@ -117,19 +116,9 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide bgColor="base">
-					<Heading size={6} textColor="primary" caps>
+					<Heading size={3} textColor="theme">
 						But we didn't start writing tests right away
 					</Heading>
-
-					<List textColor="theme">
-						<ListItem>"Writing tests doubles development time!"</ListItem>
-						<ListItem>
-							"Each time we refactor we have to rewrite all the tests!"
-						</ListItem>
-						<ListItem>
-							"There are too many options out there, it's overwhelming!"
-						</ListItem>
-					</List>
 				</Slide>
 
 				<Slide bgColor="base">
@@ -138,13 +127,17 @@ export default class Presentation extends React.Component {
 					</Heading>
 
 					<List textColor="theme">
-						<ListItem>
-							It <S type="underline">does</S> take more effort to go back to an
-							existing code base and add tests
-						</ListItem>
-						<ListItem>
-							Why not write tests before implementing the feature?
-						</ListItem>
+						<Appear>
+							<ListItem>
+								It takes more time to manually test and retest features.
+							</ListItem>
+						</Appear>
+						<Appear>
+							<ListItem>
+								It takes more time to write tests after a feature is completed
+								rather than before.
+							</ListItem>
+						</Appear>
 					</List>
 				</Slide>
 
@@ -154,27 +147,95 @@ export default class Presentation extends React.Component {
 					</Heading>
 
 					<List textColor="theme">
-						<ListItem>
-							Maybe we can approach how we write tests differently?
-						</ListItem>
-						<ListItem>Test API rather than implementation details</ListItem>
+						<Appear>
+							<ListItem>
+								Maybe we can approach how we write tests differently
+							</ListItem>
+						</Appear>
+						<Appear>
+							<ListItem>
+								Test the API rather than the implementation details
+							</ListItem>
+						</Appear>
 					</List>
 				</Slide>
 
 				<Slide bgColor="base">
-					<Heading size={6} textColor="primary" caps>
-						"There are too many options out there, it's overwhelming!"
+					<Heading size={6} textColor="theme">
+						Use Jest as the testing framework that fulfills the role of test
+						runner, assertion library, and mock library.
+					</Heading>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="theme">
+						Let's start simple with a smoke test
 					</Heading>
 
-					<List textColor="theme">
-						<ListItem>Let's take a look at the options out there</ListItem>
-					</List>
+					<CodePane
+						textSize="32px"
+						margin="40px 0 0 0"
+						lang="jsx"
+						source={require('raw-loader!../assets/smokeTest.example')}
+					/>
 				</Slide>
 
 				<Slide bgColor="base">
 					<Heading size={6} textColor="primary" caps>
-						Using Jest as the testing framework that acts as the test runner, assertion library, and mock library.
+						Snapshot Testing
 					</Heading>
+
+					<Text textColor="theme" margin="40px 0 0 0">
+						Takes a snapshot of a rendered component and compares it to a
+						reference to make sure the UI didn't change unexpectantly.
+					</Text>
+				</Slide>
+
+				<Slide align="top" bgColor="base">
+					<CodePane
+						textSize="16px"
+						lang="javascript"
+						source={require('raw-loader!../assets/accordion.example')}
+					/>
+				</Slide>
+
+				<Slide align="top" bgColor="base">
+					<CodePane
+						margin="40px 0 0 0"
+						textSize="28px"
+						lang="jsx"
+						source={require('raw-loader!../assets/accordionSnapshotTest.example')}
+					/>
+				</Slide>
+
+				<Slide align="top" bgColor="base">
+					<CodePane
+						margin="40px 0 0 0"
+						textSize="18px"
+						lang="jsx"
+						source={require('raw-loader!../assets/accordionSnap.example')}
+					/>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						Snapshot Testing
+					</Heading>
+
+					<Table margin="40px 0 0 0" textColor="theme">
+						<TableRow>
+							<TableHeaderItem>Pros</TableHeaderItem>
+							<TableHeaderItem>Cons</TableHeaderItem>
+						</TableRow>
+						<TableRow>
+							<TableItem>Good for functional components</TableItem>
+							<TableItem>Requires manual inspection</TableItem>
+						</TableRow>
+						<TableRow>
+							<TableItem>Easy to write</TableItem>
+							<TableItem>Alot of snapshots could fail at once</TableItem>
+						</TableRow>
+					</Table>
 				</Slide>
 
 				<Slide bgColor="base">
@@ -182,7 +243,7 @@ export default class Presentation extends React.Component {
 						Testing libraries
 					</Heading>
 
-					<List textColor="theme">
+					<List textColor="theme" margin="40px 0 0 0">
 						<ListItem>Test Utilities</ListItem>
 						<ListItem>Enzyme</ListItem>
 						<ListItem>React Testing Library</ListItem>
@@ -196,18 +257,61 @@ export default class Presentation extends React.Component {
 
 					<List textColor="theme">
 						<ListItem>Built by Airbnb</ListItem>
-						<ListItem>Wide adoption and community support</ListItem>
-						<ListItem>A little bit more involved to set up <Code>npm install --save enzyme enzyme-adapter-react-16 react-test-renderer</Code></ListItem>
-						<ListItem>Version cooresponding adapter that needs to be configured</ListItem>
+						<ListItem>Wide adoption</ListItem>
+						<ListItem>
+							Make sure to install the right version cooresponding adapter and
+							configure it
+						</ListItem>
 						<ListItem>Robust API</ListItem>
+						<ListItem>Can test lifecycle methods</ListItem>
+						<ListItem>
+							People tend to prefer Enzyme for shallow rendering
+						</ListItem>
 					</List>
 				</Slide>
 
 				<Slide bgColor="base">
+					<Heading size={6} textColor="primary" caps>
+						Shallow Rendering
+					</Heading>
+
+					<List textColor="theme">
+						<ListItem>
+							Renders the parent component without any of its children
+						</ListItem>
+						<ListItem>Good for testing in isolation</ListItem>
+						<ListItem>
+							Can help prevent snapshot test from breaking all the time
+						</ListItem>
+					</List>
+				</Slide>
+
+				<Slide bgColor="base" align="top">
 					<CodePane
+						textSize="20px"
+						margin="40px 0 0 0"
 						lang="jsx"
-						source={require('raw-loader!../assets/setUpTestForEnzyme.example')}
+						source={require('raw-loader!../assets/shallowRenderingTest.example')}
 					/>
+
+					<Appear>
+						<Image src={images.accordion} width={800} />
+					</Appear>
+				</Slide>
+
+				<Slide bgColor="base">
+					<Heading size={6} textColor="theme">
+						Beware of testing implementation details:
+					</Heading>
+
+					<Appear>
+						<CodePane
+							margin="40px 0 0 0"
+							textSize="24px"
+							lang="jsx"
+							source={require('raw-loader!../assets/implementationDetail.example')}
+						/>
+					</Appear>
 				</Slide>
 
 				<Slide bgColor="base">
@@ -216,11 +320,25 @@ export default class Presentation extends React.Component {
 					</Heading>
 
 					<List textColor="theme">
-						<ListItem>A way to test react components to resemble how an end user would interact with the component</ListItem>
+						<ListItem>
+							A way to test react components to resemble how an end user would
+							interact with the component
+						</ListItem>
 						<ListItem>Avoids testing implementation details</ListItem>
-						<ListItem>Easy set up <Code>npm install --save react-testing-library jest-dom</Code></ListItem>
-						<ListItem>Built on top of <Code>dom-testing-library</Code></ListItem>
+						<ListItem>Easy set up</ListItem>
+						<ListItem>
+							Built on top of <Code bgColor="theme">dom-testing-library</Code>
+						</ListItem>
 					</List>
+				</Slide>
+
+				<Slide bgColor="base" align="top">
+					<CodePane
+						margin="40px 0 0 0"
+						textSize="24px"
+						lang="jsx"
+						source={require('raw-loader!../assets/reactTestingLibrary.example')}
+					/>
 				</Slide>
 
 				<Slide bgColor="base">
@@ -235,33 +353,9 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide bgColor="base">
-					<Heading size={6} textColor="primary" caps>
+					<Heading size={3} textColor="primary" caps>
 						Thank you!
 					</Heading>
-				</Slide>
-
-				<Slide bgColor="base">
-					<Heading size={6} textColor="primary" caps>
-						Typography
-					</Heading>
-					<Heading size={1} textColor="theme">
-						Heading 1
-					</Heading>
-					<Heading size={2} textColor="secondary">
-						Heading 2
-					</Heading>
-					<Heading size={3} textColor="secondary">
-						Heading 3
-					</Heading>
-					<Heading size={4} textColor="secondary">
-						Heading 4
-					</Heading>
-					<Heading size={5} textColor="secondary">
-						Heading 5
-					</Heading>
-					<Text size={6} textColor="secondary">
-						Standard text
-					</Text>
 				</Slide>
 			</Deck>
 		);
